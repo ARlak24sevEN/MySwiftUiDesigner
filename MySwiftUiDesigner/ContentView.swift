@@ -9,18 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+       HomeView()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
+            HomeView().tabItem {
+                Image(systemName: "house.fill")
+                Text("Home") }.tag(1)
+            DetailView().tabItem {
+                Image(systemName: "eyes.inverse")
+                Text("Detail") }.tag(2)
+        }
+       
     }
 }
+
